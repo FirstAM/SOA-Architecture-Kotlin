@@ -14,12 +14,9 @@ import soa.OrderService
 import soa.UserServiceClient
 import kotlinx.serialization.encodeToString
 
-
-
-
-val httpClient = defaultClient
-val userServiceClient = UserServiceClient(httpClient, jsonSerializer)
-val service = OrderService(userServiceClient)
+private val httpClient = defaultClient
+private val userServiceClient = UserServiceClient(httpClient, jsonSerializer)
+private val service = OrderService(userServiceClient)
 
 fun main() {
     embeddedServer(Netty, port = 8081, host = "127.0.0.1") {
